@@ -1,0 +1,6 @@
+interface:
+  display_name: "Cover Generate"
+  short_description: "用背景图、人物素材和主题制作中文三版、英文四版共七张封面，按日期归档到文稿"
+  default_prompt: "使用 $cover-generate，根据我上传的背景图、人物素材图和主题描述，生成中文 3:4、4:3、16:9 和英文 3:4、9:16、4:3、16:9 共七张视频封面（中文Instagram另补9:16），文件名标注语言、比例和横竖版，并按日期和主题保存。"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 自媒体一条龙"
+  short_description: "串联选题、拍摄稿、口播剪辑、观点动画、封面和分发，支持素材交付后连续制作。"
+  default_prompt: "使用 $ai-content-pipeline，根据本次素材和目标继续处理，复用已有偏好。"

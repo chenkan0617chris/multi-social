@@ -1,34 +1,63 @@
-# multi-social
+# Multi Social - AI Content Skills
 
-一个用于中英文视频内容的全平台分发 Codex skill：将明确指定的素材包分发到抖音、小红书（Red Note）、B站、X、TikTok、YouTube、Instagram、LinkedIn 和 Facebook。
+A collection of 10 skills for planning, producing and distributing social content.
 
-它会帮助你锁定素材与封面、适配各平台文案、准备审核，并在每个平台记录真实的提交与发布状态；不会因为调用 skill 而自动发布内容。
+## Skills
 
-## 安装
+| Skill | Purpose | Location |
+| --- | --- | --- |
+| multi-social | Bilingual multi-platform distribution | [SKILL.md](SKILL.md) |
+| ai-content-pipeline | End-to-end production workflow | [Skill](skills/ai-content-pipeline/SKILL.md) |
+| ai-topic-plan | Topic selection grounded in real experience | [Skill](skills/ai-topic-plan/SKILL.md) |
+| ai-video-script | Spoken scripts and shooting plans | [Skill](skills/ai-video-script/SKILL.md) |
+| ai-talking-edit | Talking-head editing and subtitles | [Skill](skills/ai-talking-edit/SKILL.md) |
+| ai-point-motion | Motion graphics for spoken points | [Skill](skills/ai-point-motion/SKILL.md) |
+| cover-generate | Bilingual multi-format covers | [Skill](skills/cover-generate/SKILL.md) |
+| baoyu-xhs-images | Xiaohongshu image cards | [Skill](skills/baoyu-xhs-images/SKILL.md) |
+| baoyu-infographic | Infographics | [Skill](skills/baoyu-infographic/SKILL.md) |
+| hypit | AI video production | [Skill](skills/hypit/SKILL.md) |
 
-下载或克隆本仓库后，把整个目录复制到你的 Codex skills 目录：
+## Installation
+
+Clone this repository, then copy the skills you need into your user skills folder.
+Review existing installations before replacing files. The original root-level
+multi-social entry remains compatible with existing users.
 
 ```bash
 git clone https://github.com/chenkan0617chris/multi-social.git
-mkdir -p ~/.codex/skills
-cp -R multi-social ~/.codex/skills/multi-social
+mkdir -p ~/.codex/skills/multi-social
+cp multi-social/SKILL.md ~/.codex/skills/multi-social/
+cp -R multi-social/agents ~/.codex/skills/multi-social/
+# Example: install the complete workflow and topic planner.
+cp -R multi-social/skills/ai-content-pipeline ~/.codex/skills/
+cp -R multi-social/skills/ai-topic-plan ~/.codex/skills/
+# Repeat for other desired directories under skills/.
 ```
 
-重启或重新加载 Codex 后，即可使用：
+## Usage and dependencies
 
-```text
-$multi-social 用 /绝对路径/素材包，准备九个平台，先不要发布。
-```
+Ask the agent to use a skill by name. Start with ai-topic-plan for ideas,
+ai-video-script for scripts, or ai-content-pipeline for the full workflow.
+The full workflow calls the individual skills; install those you intend to use.
 
-## 使用示例
+Several production skills require the ChatCut plugin, an available image-generation
+backend, or the Hypit runtime. Installing these files does not install external
+services or grant accounts, API access, credits or publishing permission.
 
-```text
-$multi-social 只准备这个包的英文版到 X、TikTok 和 YouTube Shorts。
-$multi-social 继续这个包，只处理还没完成的平台。
-```
+Default content location: ~/Documents/Social Media. Personal style preferences
+and Sydney timezone defaults remain documented in the skills and can be overridden.
+Distribution always follows the user's authorization for the specific content.
 
-默认是“上传、填好、待审核”。只有在用户明确要求直接发布时，才会提交当次指定的内容。
+## Source and licenses
 
-## 许可证
+Local skill snapshot: 2026-10-12. Personal workflow skills and the root distribution
+skill use the repository [MIT license](LICENSE).
 
-本项目采用 [MIT License](LICENSE)。
+Third-party skills retain their own licenses, which override the root license
+for those directories:
+
+- baoyu-xhs-images and baoyu-infographic: [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills), MIT. See each directory's LICENSE and UPSTREAM.md.
+- hypit: [hypit-ai/hypit](https://github.com/hypit-ai/hypit), modified Apache 2.0 with additional conditions. See [its license](skills/hypit/LICENSE).
+
+Other installed marketing, programming, system and plugin skills are not bundled
+here. The separate private local-skills repository remains the full local backup.
